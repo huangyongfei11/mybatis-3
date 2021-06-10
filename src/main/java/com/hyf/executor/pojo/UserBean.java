@@ -15,6 +15,8 @@
  */
 package com.hyf.executor.pojo;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.Date;
 
 /**
@@ -89,8 +91,17 @@ public class UserBean {
      */
     private Integer deleteFlag;
 
+    private RoleBean roleBean;
 
-    public String getId() {
+  public RoleBean getRoleBean() {
+    return roleBean;
+  }
+
+  public void setRoleBean(RoleBean roleBean) {
+    this.roleBean = roleBean;
+  }
+
+  public String getId() {
         return id;
     }
 
@@ -197,20 +208,6 @@ public class UserBean {
 
     @Override
     public String toString() {
-        return "UserBean{" +
-                "id='" + id + '\'' +
-                ", accountName='" + accountName + '\'' +
-                ", passWord='" + passWord + '\'' +
-                ", gender='" + gender + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userTel='" + userTel + '\'' +
-                ", userIM='" + userIM + '\'' +
-                ", userEmail='" + userEmail + '\'' +
-                ", userOnOffFlag=" + userOnOffFlag +
-                ", remark='" + remark + '\'' +
-                ", createTime=" + createTime +
-                ", createUser='" + createUser + '\'' +
-                ", deleteFlag=" + deleteFlag +
-                '}';
+        return JSONObject.toJSONString(this);
     }
 }
